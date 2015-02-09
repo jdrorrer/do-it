@@ -38,7 +38,7 @@ angular.module('doIt')
           this.tasks[id].status = 'expired';
           this.tasks.$save(id);
 
-          console.log (task.name + " is older than 7 days. Changed status to 'expired' and moved to task history.");
+          console.log ("'" + task.name + "' is older than 7 days. Changed status to 'expired' and moved to task history.");
         } 
       },
       setTaskClass: function(task) {
