@@ -20,9 +20,12 @@
     </div>
     <div class="task-list-body">
       <ul class="tasks">
-        <li ng-repeat="(id, task) in tasks" ng-hide="taskHistory.getTaskStatus(task)" complete-task class="task">{{ task.name }}<i class="fa fa-check-circle-o fa-3x" tooltip="Complete Task" tooltip-placement="left"></i><i class="fa fa-times-circle-o fa-3x" tooltip="Delete Task" tooltip-placement="right" ng-click="taskHistory.removeTask(task)"></i></li>
+        <li ng-repeat="(id, task) in tasks" ng-hide="taskHistory.getTaskStatus(task)" ng-init="checkExpiration(task, id)" class="task">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
       </ul>
     </div>
+  </div>
+  <div>
+    <!-- Current Date/Time: {{ currentDate | date: "medium" }} -->
   </div>
 
   <div ng-include="'components/footer/footer.html'"></div>

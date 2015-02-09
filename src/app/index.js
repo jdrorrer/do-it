@@ -16,4 +16,4 @@ angular.module('doIt', ['firebase', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSani
 
     $urlRouterProvider.otherwise('/');
   })
-  .constant('FIREBASE_URI', 'https://crackling-heat-9699.firebaseio.com/');
+  .constant('FIREBASE_URI', 'https://do-it.firebaseio.com/');

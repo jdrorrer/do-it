@@ -9,7 +9,7 @@
 
     <div class="task-list-body">
       <ul class="tasks">
-        <li ng-repeat="task in tasks" ng-show="taskHistory.getTaskStatus(task)" ng-class="taskHistory.setTaskClass(task)" class="task">{{ task.name }}<i class="fa fa-times-circle-o fa-3x" tooltip="Delete Task" tooltip-placement="right" ng-click="taskHistory.removeTask(task)"></i></li>
+        <li ng-repeat="(id, task) in tasks" ng-show="taskHistory.getTaskStatus(task)" ng-class="taskHistory.setTaskClass(task)" class="task">{{ task.name }}<delete-task></delete-task></li>
       </ul>
     </div>
   </div>

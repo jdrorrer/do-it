@@ -68,11 +68,10 @@ $button-color: #444;
         position: absolute;
         bottom: $font-size-base/3;
         color: $header-color;
-        right: $font-size-base;
         transition: color 0.4s ease-in;
         &.fa-check-circle-o {
           display: inline;
-          margin-right: $font-size-base*2.5;
+          right: $font-size-base*3.75;
           &:hover {
             color: #47a447;
             cursor: pointer; 
@@ -81,6 +80,7 @@ $button-color: #444;
 
         &.fa-times-circle-o {
           display: inline;
+          right: $font-size-base;
           &:hover {
             color: #d2322d;
             cursor: pointer; 
