@@ -1,0 +1,92 @@
+$font-size-base: 16px !default;
+$line-height-base: 1.5 !default;
+
+$border-color: #DDD;
+$background-color: #EEE;
+$header-color: #BBB;
+$button-color: #444;
+
+.task-list {
+  max-width: 50%;
+  min-width: 350px;
+  margin: 5% auto;
+  min-height: 400px;
+  max-height: auto;
+  box-shadow: 0px 1px 5px 0 rgba(0, 0, 0, .4);
+  background-color: $background-color;
+  .task-list-head {
+    background-color: $header-color;
+    padding: $font-size-base * 1.25;
+    font-size: $font-size-base * 1.25;
+  }
+  .add-task-container {
+    .add-task-header {
+      background-color: $border-color;
+      div {
+        display: inline-block;
+        padding: $font-size-base/2 0;
+        &.new-task-label {
+          margin-left: $font-size-base;
+        }
+        &.priority-label {
+          margin-left: 21%;
+        }
+      }
+    }
+    .add-task {
+      input {
+        background-color: white;
+        border: none;
+        border-left: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        padding: $font-size-base;
+        width: 40%;
+        &.priority {
+          margin-left: -4px;
+        }
+      }
+      button {
+        margin: 0;
+        padding: $font-size-base;
+        background-color: $button-color;
+        color: $background-color;
+        border: none;
+        border-bottom: 1px solid $button-color;
+        width: 20%;
+        margin-left: -4px;
+      }
+    }
+  }
+  .tasks {
+    padding-left: 0;
+    li {
+      list-style-type: none;
+      padding: $font-size-base $font-size-base*2;
+      border-bottom: 1px solid #DDD;
+      position: relative;
+      i {
+        position: absolute;
+        bottom: $font-size-base/3;
+        color: $header-color;
+        right: $font-size-base;
+        transition: color 0.4s ease-in;
+        &.fa-check-circle-o {
+          display: inline;
+          margin-right: $font-size-base*2.5;
+          &:hover {
+            color: #47a447;
+            cursor: pointer; 
+          }
+        }
+
+        &.fa-times-circle-o {
+          display: inline;
+          &:hover {
+            color: #d2322d;
+            cursor: pointer; 
+          }
+        }
+      }
+    }
+  }
+}

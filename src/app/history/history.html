@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div ng-include="'components/navbar/navbar.html'"></div>
+
+  <div class="task-list">
+    <div class="task-list-head">
+      Task History
+    </div>
+
+    <div class="task-list-body">
+      <ul class="tasks">
+        <li ng-repeat="task in tasks" ng-show="taskHistory.getTaskStatus(task)" ng-class="taskHistory.setTaskClass(task)" class="task">{{ task.name }}<i class="fa fa-times-circle-o fa-3x" tooltip="Delete Task" tooltip-placement="right" ng-click="taskHistory.removeTask(task)"></i></li>
+      </ul>
+    </div>
+  </div>
+
+  <div ng-include="'components/footer/footer.html'"></div>
+
+</div>
