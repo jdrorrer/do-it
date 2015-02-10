@@ -16,7 +16,7 @@ angular.module('doIt')
     $scope.addCurrentTask = function(task) {
       TaskHistory.addTask(task);
       $scope.task.name = null;
-      $scope.task.priority = 'Select a priority...';
+      $scope.task.priority = 'Select priority...';
     };
 
   });

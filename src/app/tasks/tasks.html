@@ -16,16 +16,13 @@
         <input ng-model="task.name" class="new-task" type="text" placeholder="Enter new task..."></input>
         <div class="select-style">
           <select ng-model="task.priority" ng-options="priority for priority in priorities" class="priority">
-            <option value="" disabled selected>Select a priority...</option>
+            <option value="" disabled selected>Select priority...</option>
           </select>
         </div>
         <!-- <input ng-model="task.priority" class="priority" type="text" placeholder="high, med, low"></input> -->
         <button class="add-btn" ng-click="addCurrentTask(task)">Add</button>
       </div>
     </div>
-    <br/>
-    <br/>
-    <br/>
     <div class="task-list-body">
       <ul class="tasks">
         <li ng-repeat="(id, task) in tasks" ng-hide="taskHistory.getTaskStatus(task)" ng-init="checkExpiration(task, id)" class="task">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>

@@ -1,19 +1,21 @@
-<nav class="navbar navbar-static-top navbar-inverse" ng-controller="NavbarCtrl">
-  <div class="container-fluid">
+<nav class="navbar navbar-static-top navbar-inverse" role="navigation" ng-controller="NavbarCtrl">
+  <div class="container-fluid" id="navfluid">
     <div class="navbar-header">
       <a class="navbar-brand" ui-sref="home">
-        <i class="fa fa-check-circle"></i> Do.it
+        d<i class="fa fa-check-circle"></i>.it
       </a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+    <div class="collapse navbar-collapse" id="nav-collapse">
       <ul class="nav navbar-nav">
         <li ui-sref-active='active'><a ui-sref="home">Active Tasks</a></li>
         <li ui-sref-active='active'><a ui-sref="history">Task History</a></li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li>Current date: {{ date | date:'yyyy-MM-dd' }}</li>
       </ul>
     </div>
   </div>

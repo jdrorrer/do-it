@@ -15,7 +15,8 @@ $button-color: #444;
   box-shadow: 0px 1px 5px 0 rgba(0, 0, 0, .4);
   background-color: $background-color;
   .task-list-head {
-    background-color: $header-color;
+    background-color: tomato;
+    color: white;
     padding: $font-size-base * 1.25;
     font-size: $font-size-base * 1.25;
   }
@@ -29,11 +30,12 @@ $button-color: #444;
           margin-left: $font-size-base;
         }
         &.priority-label {
-          margin-left: 21%;
+          margin-left: 23%;
         }
       }
     }
     .add-task {
+      display: block;
       position: relative;
       input {
         position: absolute;
@@ -50,6 +52,7 @@ $button-color: #444;
         position: absolute;
         left: 40%;
         display:inline-block;
+        color: #AAA;
         background-color: white;
         border: none;
         border-left: 1px solid $border-color;
@@ -73,8 +76,8 @@ $button-color: #444;
         }
       }
       button {
-        position: absolute;
-        left: 80%;
+        position: relative;
+        float: right;
         display:inline-block;
         margin: 0;
         padding: $font-size-base;
@@ -83,11 +86,17 @@ $button-color: #444;
         border: none;
         border-bottom: 1px solid $button-color;
         width: 20%;
+        transition: all .4s ease-in;
+        &:hover {
+          background-color: steelblue;
+          border-color: steelblue;
+        }
       }
     }
   }
   .tasks {
     padding-left: 0;
+    clear: right;
     li {
       list-style-type: none;
       padding: $font-size-base $font-size-base*2;
@@ -102,20 +111,71 @@ $button-color: #444;
           display: inline;
           right: $font-size-base*3.75;
           &:hover {
-            color: #47a447;
+            color: yellowgreen;
             cursor: pointer; 
           }
         }
-
         &.fa-times-circle-o {
           display: inline;
           right: $font-size-base;
           &:hover {
-            color: #d2322d;
+            color: tomato;
             cursor: pointer; 
           }
         }
       }
     }
   }
+}
+
+@media only screen and (max-width: 360px) {
+  $font-size-base: 12px !default;
+  $line-height-base: 1.4 !default;
+
+  .task-list {
+    min-width: 100%;
+    max-width: 100%;
+    .add-task-container {
+      .add-task-header {
+        div {
+          &.priority-label {
+            margin-left: 19%;
+          }
+        }
+      }
+      .add-task {
+        input {
+          width: 50%;
+        }
+        .select-style {
+          width: 50%;
+          left: 50%;
+          clear: right;
+        }
+        button {
+          margin-top: $font-size-base*3;
+          position: relative;
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+    .tasks {
+      margin-top: 0;
+      li {
+        padding-left: $font-size-base;
+        i {
+          position: absolute;
+          font-size: $font-size-base*2.5;
+          bottom: $font-size-base/2.5;
+          &.fa-check-circle-o {
+            right: $font-size-base*3;
+          }
+          &.fa-times-circle-o {
+            right: $font-size-base/2;
+          }
+        }
+      }
+    }
+  } 
 }

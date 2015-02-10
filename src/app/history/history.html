@@ -8,7 +8,7 @@
     </div>
 
     <div class="task-list-body">
-      <ul class="tasks">
+      <ul class="tasks tasks-completed">
         <li ng-repeat="(id, task) in tasks" ng-show="taskHistory.getTaskStatus(task)" ng-class="taskHistory.setTaskClass(task)" class="task">{{ task.name }}<delete-task></delete-task></li>
       </ul>
     </div>

@@ -1,0 +1,14 @@
+.navbar-brand {
+  font-size: $font-size-base * 1.35;
+  transition: color .4s ease-in;
+  &:hover {
+    color: tomato !important;
+  }
+  i {
+    color: tomato;
+  }
+}
+
+.fa-check-circle {
+  font-size: $font-size-base;
+}
