@@ -6,7 +6,8 @@ angular.module('doIt')
     $scope.taskHistory = TaskHistory;
     $scope.tasks = TaskHistory.tasks;
     $scope.task = {};
-    $scope.currentDate = new Date().getTime();  
+    $scope.currentDate = new Date().getTime(); 
+    $scope.priorities = ['high', 'medium', 'low']; 
 
     $scope.checkExpiration = function(task, id) {
       TaskHistory.setExpiredTask(task, id, $scope.currentDate);
@@ -15,7 +16,7 @@ angular.module('doIt')
     $scope.addCurrentTask = function(task) {
       TaskHistory.addTask(task);
       $scope.task.name = null;
-      $scope.task.priority = null;
+      $scope.task.priority = 'Select a priority...';
     };
 
   });

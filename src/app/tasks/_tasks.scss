@@ -34,18 +34,48 @@ $button-color: #444;
       }
     }
     .add-task {
+      position: relative;
       input {
+        position: absolute;
+        display: inline-block;
         background-color: white;
         border: none;
         border-left: 1px solid $border-color;
         border-bottom: 1px solid $border-color;
         padding: $font-size-base;
         width: 40%;
-        &.priority {
-          margin-left: -4px;
+        outline: none;
+      }
+      .select-style {
+        position: absolute;
+        left: 40%;
+        display:inline-block;
+        background-color: white;
+        border: none;
+        border-left: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        width: 40%;
+        padding: $font-size-base;
+        overflow: hidden;
+        select {
+          border: none;
+          border-radius: none;
+          width: 100%;
+          box-shadow: none;
+          background: transparent;
+          backgroun-image: none;
+          option[disabled] {
+            display: none;
+          }
+          &:focus {
+            outline: none;
+          }
         }
       }
       button {
+        position: absolute;
+        left: 80%;
+        display:inline-block;
         margin: 0;
         padding: $font-size-base;
         background-color: $button-color;
@@ -53,7 +83,6 @@ $button-color: #444;
         border: none;
         border-bottom: 1px solid $button-color;
         width: 20%;
-        margin-left: -4px;
       }
     }
   }
