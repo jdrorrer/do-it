@@ -8,8 +8,8 @@
     </div>
 
     <div class="task-list-body">
-      <ul class="tasks tasks-completed">
-        <li ng-repeat="(id, task) in tasks" ng-show="taskHistory.getTaskStatus(task)" ng-class="taskHistory.setTaskClass(task)" class="task">{{ task.name }}<delete-task></delete-task></li>
+      <ul class="tasks">
+        <li ng-repeat="(id, task) in tasks" ng-show="taskHistory.getTaskStatus(task)" ng-class="taskHistory.setTaskClass(task)" ng-swipe-left="taskHistory.reActivateTask(task, id)" class="task task-history animate-swipe-lt">{{ task.name }}<delete-task></delete-task></li>
       </ul>
     </div>
   </div>

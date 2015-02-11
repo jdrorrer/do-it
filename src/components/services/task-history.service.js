@@ -26,6 +26,18 @@ angular.module('doIt')
 
         this.tasks.$add(task);
       },
+      completeTask: function(task, id) {
+        this.tasks[id].status = 'completed';
+        this.tasks.$save(id);
+          
+        console.log("Moved completed task to history");  
+      },
+      reActivateTask: function(task, id) {
+        this.tasks[id].status = 'active';
+        this.tasks.$save(id);
+
+        console.log("Changed task status from completed to active");
+      },
       removeTask: function(task) {
         this.tasks.$remove(task);
       },

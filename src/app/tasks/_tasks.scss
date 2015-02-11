@@ -102,6 +102,26 @@ $button-color: #444;
       padding: $font-size-base $font-size-base*2;
       border-bottom: 1px solid #DDD;
       position: relative;
+
+      /*  ng-hide Animation for swipe right touch gesture */
+      &.animate-swipe-rt.ng-hide-add, &.animate-swipe-rt.ng-hide-remove {
+        -webkit-transition: all linear 1s;
+        -moz-transition: all linear 1s;
+        -o-transition: all linear 1s;
+        transition: all linear 1s;
+        display: block;
+      }
+
+      &.animate-swipe-rt.ng-hide-add.ng-hide-add-active {
+        opacity: 0;
+        text-decoration: line-through;
+      }
+
+      &.animate-swipe-rt.ng-hide-remove.ng-hide-remove-active {
+        opacity: 1;
+        text-decoration: none;
+      }
+      
       i {
         position: absolute;
         bottom: $font-size-base/3;

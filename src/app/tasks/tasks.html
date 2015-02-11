@@ -3,7 +3,7 @@
   <div ng-include="'components/navbar/navbar.html'"></div>
 
 
-  <div class="task-list">
+  <div class="task-list reveal-animation">
     <div class="task-list-head">
       Current Tasks
     </div>
@@ -19,18 +19,14 @@
             <option value="" disabled selected>Select priority...</option>
           </select>
         </div>
-        <!-- <input ng-model="task.priority" class="priority" type="text" placeholder="high, med, low"></input> -->
         <button class="add-btn" ng-click="addCurrentTask(task)">Add</button>
       </div>
     </div>
     <div class="task-list-body">
-      <ul class="tasks">
-        <li ng-repeat="(id, task) in tasks" ng-hide="taskHistory.getTaskStatus(task)" ng-init="checkExpiration(task, id)" class="task">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
+      <ul class="tasks" ng-animate-children>
+        <li ng-repeat="(id, task) in tasks" ng-hide="taskHistory.getTaskStatus(task)" ng-init="checkExpiration(task, id)" ng-swipe-right="taskHistory.completeTask(task, id)" class="task animate-swipe-rt">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
       </ul>
     </div>
-  </div>
-  <div>
-    <!-- Current Date/Time: {{ currentDate | date: "medium" }} -->
   </div>
 
   <div ng-include="'components/footer/footer.html'"></div>
