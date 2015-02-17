@@ -16,7 +16,7 @@ angular.module('doIt')
           tasks[id].status = 'completed';
           tasks.$save(id);
           
-          console.log("Moved completed task to history");      
+          console.log("Moved completed task to history " + task.$id);      
         };
       }
     };

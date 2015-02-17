@@ -1,3 +1,4 @@
+// Task variables
 $font-size-base: 16px !default;
 $line-height-base: 1.5 !default;
 
@@ -6,19 +7,91 @@ $background-color: #EEE;
 $header-color: #BBB;
 $button-color: #444;
 
-.task-list {
+// Mixins
+@mixin content-width() {
   max-width: 50%;
   min-width: 350px;
-  margin: 5% auto;
-  min-height: 400px;
+  margin: 2% auto;
+}
+
+@mixin button() {
+  display: inline-block;
+  float: right;
+  margin: 0;
+  padding: $font-size-base;
+  background-color: $button-color;
+  color: $background-color;
+  border: none;
+  border-bottom: 1px solid $button-color;
+  width: 20%;
+  transition: all .4s ease-in;
+  &:hover {
+    background-color: steelblue;
+    border-color: steelblue;
+  }
+}
+
+@mixin text-input($width) {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid $border-color;
+  padding: $font-size-base;
+  width: $width;
+  outline: none;
+}
+
+.create-task-list{
+  @include content-width();
+  .create-list-input {
+    @include text-input(79%);
+  }
+  .create-list-button {
+    @include button();
+    border-top: 1px solid $button-color;
+  }
+}
+
+
+.task-list {
+  @include content-width();
+  min-height: 300px;
   max-height: auto;
   box-shadow: 0px 1px 5px 0 rgba(0, 0, 0, .4);
   background-color: $background-color;
+  border-radius: 4px;
   .task-list-head {
     background-color: tomato;
     color: white;
     padding: $font-size-base * 1.25;
     font-size: $font-size-base * 1.25;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    position: relative;
+    .search-input {
+      @include text-input(40%);
+      position: absolute;
+      right: $font-size-base / 2;
+      bottom: $font-size-base / 2;
+      font-size: 14px;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      background-color: rgba(255,255,255,0.15);
+      &::-webkit-input-placeholder { /* WebKit browsers */
+          color: rgba(255,255,255,0.8);
+      }
+      &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+         color: white;
+         opacity: 0.8;
+      }
+      &::-moz-placeholder { /* Mozilla Firefox 19+ */
+         color: white;
+         opacity: 0.8;
+      }
+      &:-ms-input-placeholder { /* Internet Explorer 10+ */
+         color: rgba(255,255,255,0.8);
+      }
+    }
   }
   .add-task-container {
     .add-task-header {
@@ -38,15 +111,11 @@ $button-color: #444;
       display: block;
       position: relative;
       input {
+        @include text-input(40%);
         position: absolute;
-        display: inline-block;
-        background-color: white;
         border: none;
         border-left: 1px solid $border-color;
         border-bottom: 1px solid $border-color;
-        padding: $font-size-base;
-        width: 40%;
-        outline: none;
       }
       .select-style {
         position: absolute;
@@ -76,21 +145,8 @@ $button-color: #444;
         }
       }
       button {
+        @include button();
         position: relative;
-        float: right;
-        display:inline-block;
-        margin: 0;
-        padding: $font-size-base;
-        background-color: $button-color;
-        color: $background-color;
-        border: none;
-        border-bottom: 1px solid $button-color;
-        width: 20%;
-        transition: all .4s ease-in;
-        &:hover {
-          background-color: steelblue;
-          border-color: steelblue;
-        }
       }
     }
   }
@@ -148,13 +204,20 @@ $button-color: #444;
   }
 }
 
+// Mobile-friendly view of task list
 @media only screen and (max-width: 360px) {
   $font-size-base: 12px !default;
   $line-height-base: 1.4 !default;
 
+  .create-task-list {
+    max-width: 100%;
+    min-width: 100%;
+  }
+
   .task-list {
     min-width: 100%;
     max-width: 100%;
+    margin: 5% auto;
     .add-task-container {
       .add-task-header {
         div {

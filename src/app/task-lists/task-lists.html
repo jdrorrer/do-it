@@ -10,7 +10,6 @@
   <div class="task-list">
     <div class="task-list-head">
       {{ task.category }}
-      <input ng-model="task.searchFilter" type="text" class="search-input" placeholder="Search tasks...">
     </div>
     <div class="add-task-container">
       <div class="add-task-header">
@@ -29,7 +28,7 @@
     </div>
     <div class="task-list-body">
       <ul class="tasks">
-        <li ng-repeat="(id, task) in tasks | filter: task.searchFilter" ng-hide="taskHistory.getTaskStatus(task)" ng-swipe-right="taskHistory.completeTask(task, id)" class="task animate-swipe-rt">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
+        <li ng-repeat="(id, task) in tasks | filter: task.category" ng-hide="taskHistory.getTaskStatus(task)" ng-init="checkExpiration(task, id)" ng-swipe-right="taskHistory.completeTask(task, id)" class="task animate-swipe-rt">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
       </ul>
     </div>
   </div>
