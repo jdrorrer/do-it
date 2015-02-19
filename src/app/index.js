@@ -9,9 +9,14 @@ angular.module('doIt', ['firebase', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSani
         controller: 'TasksCtrl'
       })
       .state('history', {
-        url: 'history',
+        url: '/history',
         templateUrl: 'app/history/history.html',
         controller: 'HistoryCtrl'
+      })
+      .state('lists', {
+        url: '/lists/:listId',
+        templateUrl: 'app/lists/lists.html',
+        controller: 'ListsCtrl'
       });
 
     $urlRouterProvider.otherwise('/');

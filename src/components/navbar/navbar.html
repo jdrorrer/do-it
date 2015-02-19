@@ -14,8 +14,9 @@
 
     <div class="collapse navbar-collapse" id="nav-collapse">
       <ul class="nav navbar-nav">
-        <li ui-sref-active='active'><a ui-sref="home">Active Tasks</a></li>
-        <li ui-sref-active='active'><a ui-sref="history">Task History</a></li>
+        <li ui-sref-active='active' data-toggle="collapse" data-target="#nav-collapse"><a ui-sref="home">Active Tasks</a></li>
+        <li ui-sref-active='active' ng-repeat="list in lists" data-toggle="collapse" data-target="#nav-collapse"><a ui-sref="lists({listId: list.$id})">{{ list.name }}</a></li>
+        <li ui-sref-active='active' data-toggle="collapse" data-target="#nav-collapse"><a ui-sref="history">Task History</a></li>
       </ul>
     </div>
   </div>

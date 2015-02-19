@@ -1,5 +1,5 @@
 <div class="container">
-
+  
   <form class="create-task-list" ng-submit="createList()">
     <input ng-model="list.newName" type="text" class="create-list-input" placeholder="+ Create new task list...">
     <button type="submit" class="create-list-button">Create</button>
@@ -7,7 +7,7 @@
 
   <div class="task-list">
     <div class="task-list-head">
-      Current Tasks
+      {{ list.name }}
       <input ng-model="task.searchFilter" type="text" class="search-input" placeholder="Search tasks...">
     </div>
     <form ng-submit="addCurrentTask(task)" class="add-task-container">
@@ -30,6 +30,10 @@
         <li ng-repeat="task in tasks | filter: task.searchFilter" ng-hide="taskHistory.getTaskStatus(task)" ng-swipe-right="taskHistory.completeTask(task)" class="task animate-swipe-rt">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
       </ul>
     </div>
+  </div>
+  
+  <div class="delete-container">
+    <button class="delete-btn" ng-click="deleteList()">Delete List</button>
   </div>
 
 </div>

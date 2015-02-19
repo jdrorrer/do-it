@@ -4,7 +4,7 @@ angular.module('doIt')
   .controller('HistoryCtrl', function ($scope, $filter, TaskHistory) {
     $scope.taskHistory = TaskHistory;
 
-    $scope.tasks = TaskHistory.tasks;
+    $scope.tasks = TaskHistory.all;
 
     // Once firebase array of tasks is loaded
     // $scope.tasks.$loaded(function() {
