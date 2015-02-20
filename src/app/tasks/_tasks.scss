@@ -65,7 +65,8 @@ $button-color: #444;
     background-color: tomato;
     color: white;
     padding: $font-size-base * 1.25;
-    font-size: $font-size-base * 1.25;
+    font-size: 1.777em;
+    font-weight: 300;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     position: relative;
@@ -74,7 +75,7 @@ $button-color: #444;
       width: 40%;
       position: absolute;
       right: $font-size-base / 2;
-      bottom: $font-size-base / 2;
+      bottom: $font-size-base / 1.4;
       font-size: 14px;
       color: white;
       border: none;
@@ -155,13 +156,25 @@ $button-color: #444;
       }
     }
   }
+  .priority-header {
+    padding-left: $font-size-base;
+    margin-top: $font-size-base * 1.25;
+    padding-bottom: $font-size-base;
+    border-bottom: 1px dashed $border-color;
+    font-weight: 300;
+    font-size: 1.333em;
+  }
+  .priority-high-header {
+    margin-top: $font-size-base * 4;
+    padding-top: $font-size-base/2;
+  }
   .tasks {
     padding-left: 0;
     clear: right;
     li {
       list-style-type: none;
       padding: $font-size-base $font-size-base*2;
-      border-bottom: 1px solid #DDD;
+      border-bottom: 1px solid $border-color;
       position: relative;
 
       /*  ng-hide Animation for swipe right touch gesture */
@@ -217,11 +230,10 @@ $button-color: #444;
 }
 .delete-link {
   position: absolute;
-  bottom: $font-size-base;
+  bottom: $font-size-base/2;
   right: $font-size-base;
-  color: tomato;
   text-decoration: underline dotted;
-  border-bottom: 1px dotted tomato;
+  color: #AAA;
   &:hover {
     cursor: pointer;
     text-decoration: none;
@@ -279,6 +291,9 @@ $button-color: #444;
           left: 0;
         }
       }
+    }
+    .priority-high-header {
+      margin-top: $font-size-base * 7;
     }
     .tasks {
       margin-top: 0;

@@ -4,11 +4,13 @@ angular.module('doIt')
   .controller('HistoryCtrl', function ($scope, $filter, TaskHistory) {
     $scope.taskHistory = TaskHistory;
 
-    $scope.tasks = TaskHistory.all;
+    $scope.tasks = TaskHistory.notActive;
+    $scope.highTasks = TaskHistory.high;
+    $scope.mediumTasks = TaskHistory.medium;
+    $scope.lowTasks = TaskHistory.low;
 
-    // Once firebase array of tasks is loaded
     // $scope.tasks.$loaded(function() {
-    //   // Filter to show only the tasks that are NOT active
-    //   $scope.notActiveTasks = $filter('filter')($scope.tasks, '!active', status);
+    //   console.log($scope.notActiveTasks);
     // });
+
   });

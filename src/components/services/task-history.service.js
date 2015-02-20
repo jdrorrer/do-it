@@ -5,9 +5,19 @@ angular.module('doIt')
     var ref = new Firebase(FIREBASE_URI);
     var sync = $firebase(ref.child('tasks'));
     var tasks = sync.$asArray();
+    var highTasks = $firebase(ref.child('tasks').orderByChild('priority').equalTo('high')).$asArray();
+    var mediumTasks = $firebase(ref.child('tasks').orderByChild('priority').equalTo('medium')).$asArray();
+    var lowTasks = $firebase(ref.child('tasks').orderByChild('priority').equalTo('low')).$asArray();
+    var activeTasks = $firebase(ref.child('tasks').orderByChild('status').equalTo('active')).$asArray();
+    var notActiveTasks = $firebase(ref.child('tasks').orderByChild('status').equalTo('completed' || 'expired')).$asArray();
 
     return {
       all: tasks,
+      high: highTasks,
+      medium: mediumTasks,
+      low: lowTasks,
+      active: activeTasks,
+      notActive: notActiveTasks,
 
       getTaskStatus: function(task) {
         return task.status === 'active' ? false : true;
@@ -27,8 +37,6 @@ angular.module('doIt')
         else {
           listId = $stateParams.listId; // If not Active Tasks, grab $stateParams of current list
         }
-        
-        console.log(listId);
 
         task = {
           'name': taskName,
