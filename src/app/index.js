@@ -21,7 +21,4 @@ angular.module('doIt', ['xeditable', 'firebase', 'ngAnimate', 'ngCookies', 'ngTo
 
     $urlRouterProvider.otherwise('/');
   })
-  .constant('FIREBASE_URI', 'https://do-it.firebaseio.com/')
-  .run(function(editableOptions) {
-    editableOptions.theme = 'bs3';
-  });
+  .constant('FIREBASE_URI', 'https://do-it.firebaseio.com/');

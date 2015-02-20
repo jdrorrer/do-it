@@ -31,13 +31,13 @@ $button-color: #444;
   }
 }
 
-// Mixins
 %text-input {
   display: inline-block;
   background-color: white;
   border: 1px solid $border-color;
   padding: $font-size-base;
   outline: none;
+  font-weight: 300;
 }
 
 .create-task-list{
@@ -132,12 +132,15 @@ $button-color: #444;
         border-bottom: 1px solid $border-color;
         width: 40%;
         padding: $font-size-base;
+        padding-bottom: $font-size-base - 1;
         overflow: hidden;
         select {
           border: none;
           border-radius: none;
           color: #AAA;
-          -webkit-appearance: none; 
+          font-weight: 300;
+          -webkit-appearance: none;
+          appearance: none;  
           width: 100%;
           box-shadow: none;
           background: transparent;
@@ -171,6 +174,28 @@ $button-color: #444;
   [editable-text] {
     color: black; 
   }
+  .editable-wrap {
+    margin: $font-size-base 0;
+    margin-left: $font-size-base * 2;
+    display: block;
+    input {
+      margin-top: $font-size-base/3;
+      outline: none;
+    }
+  }
+  .editable-buttons button {
+    padding: $font-size-base/2;
+    background-color: $button-color;
+    color: $background-color;
+    border: none;
+    border-radius: 4px;
+    transition: all .4s ease-in;
+    &:hover {
+      background-color: steelblue;
+      border-color: steelblue;
+    }
+  }
+
   .tasks {
     padding-left: 0;
     clear: right;
@@ -297,6 +322,9 @@ $button-color: #444;
     }
     .priority-high-header {
       margin-top: $font-size-base * 7;
+    }
+    .editable-wrap {
+      margin-left: $font-size-base;
     }
     .tasks {
       margin-top: 0;
