@@ -179,7 +179,8 @@ $button-color: #444;
     margin-left: $font-size-base * 2;
     display: block;
     input {
-      margin-top: $font-size-base/3;
+      padding: $font-size-base/2;
+      border: 1px solid $border-color;
       outline: none;
     }
   }
