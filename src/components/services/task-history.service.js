@@ -48,6 +48,14 @@ angular.module('doIt')
 
         return tasks.$add(task);
       },
+      updateTask: function(task) {
+        var i = tasks.$indexFor(task.$id);
+
+        tasks[i] = task;
+        tasks.$save(i);
+
+        console.log("Changed task name to: " + tasks[i].name);
+      }, 
       completeTask: function(task) {
         var i = tasks.$indexFor(task.$id);
 

@@ -37,6 +37,10 @@ angular.module('doIt')
       $scope.task.name = null;
     };
 
+    $scope.updateTask = function(task) {
+      TaskHistory.updateTask(task);
+    };
+
   });
 
 

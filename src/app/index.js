@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('doIt', ['firebase', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
+angular.module('doIt', ['xeditable', 'firebase', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
@@ -21,4 +21,7 @@ angular.module('doIt', ['firebase', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSani
 
     $urlRouterProvider.otherwise('/');
   })
-  .constant('FIREBASE_URI', 'https://do-it.firebaseio.com/');
+  .constant('FIREBASE_URI', 'https://do-it.firebaseio.com/')
+  .run(function(editableOptions) {
+    editableOptions.theme = 'bs3';
+  });

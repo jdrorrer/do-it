@@ -9,6 +9,7 @@ angular.module('doIt')
     $scope.mediumTasks = TaskHistory.medium;
     $scope.lowTasks = TaskHistory.low;
 
+
     // $scope.tasks.$loaded(function() {
     //   console.log($scope.notActiveTasks);
     // });
