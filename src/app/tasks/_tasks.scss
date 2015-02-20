@@ -7,14 +7,14 @@ $background-color: #EEE;
 $header-color: #BBB;
 $button-color: #444;
 
-// Mixins
-@mixin content-width() {
+// Placeholders
+%content-width {
   max-width: 50%;
   min-width: 350px;
   margin: 2% auto;
 }
 
-@mixin button() {
+%button {
   display: inline-block;
   float: right;
   margin: 0;
@@ -31,34 +31,36 @@ $button-color: #444;
   }
 }
 
-@mixin text-input($width) {
+// Mixins
+%text-input {
   display: inline-block;
   background-color: white;
   border: 1px solid $border-color;
   padding: $font-size-base;
-  width: $width;
   outline: none;
 }
 
 .create-task-list{
-  @include content-width();
+  @extend %content-width;
   .create-list-input {
-    @include text-input(79%);
+    @extend %text-input;
+    width: 79%;
   }
   .create-list-button {
-    @include button();
+    @extend %button;
     border-top: 1px solid $button-color;
   }
 }
 
 
 .task-list {
-  @include content-width();
+  @extend %content-width;
   min-height: 300px;
   max-height: auto;
   box-shadow: 0px 1px 5px 0 rgba(0, 0, 0, .4);
   background-color: $background-color;
   border-radius: 4px;
+  position: relative;
   .task-list-head {
     background-color: tomato;
     color: white;
@@ -68,7 +70,8 @@ $button-color: #444;
     border-top-right-radius: 4px;
     position: relative;
     .search-input {
-      @include text-input(40%);
+      @extend %text-input;
+      width: 40%;
       position: absolute;
       right: $font-size-base / 2;
       bottom: $font-size-base / 2;
@@ -103,7 +106,7 @@ $button-color: #444;
           margin-left: $font-size-base;
         }
         &.priority-label {
-          margin-left: 23%;
+          margin-left: 21.5%;
         }
       }
     }
@@ -111,7 +114,8 @@ $button-color: #444;
       display: block;
       position: relative;
       input {
-        @include text-input(40%);
+        @extend %text-input;
+        width: 40%;
         position: absolute;
         border: none;
         border-left: 1px solid $border-color;
@@ -121,7 +125,6 @@ $button-color: #444;
         position: absolute;
         left: 40%;
         display:inline-block;
-        color: #AAA;
         background-color: white;
         border: none;
         border-left: 1px solid $border-color;
@@ -132,6 +135,8 @@ $button-color: #444;
         select {
           border: none;
           border-radius: none;
+          color: #AAA;
+          -webkit-appearance: none; 
           width: 100%;
           box-shadow: none;
           background: transparent;
@@ -145,7 +150,7 @@ $button-color: #444;
         }
       }
       button {
-        @include button();
+        @extend %button;
         position: relative;
       }
     }
@@ -204,12 +209,24 @@ $button-color: #444;
   }
 }
 
-.delete-container {
-  @include content-width();
-  .delete-btn {
-    @include button();
-    width: 40%;
-    border-top: 1px solid $button-color;
+.delete-link-container {
+  padding-bottom: $font-size-base*2;
+  padding-top: $font-size-base/2;
+  padding-right: $font-size-base;
+  clear: left;
+}
+.delete-link {
+  position: absolute;
+  bottom: $font-size-base;
+  right: $font-size-base;
+  color: tomato;
+  text-decoration: underline dotted;
+  border-bottom: 1px dotted tomato;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px solid steelblue;
+    color: steelblue;
   }
 }
 
@@ -219,9 +236,14 @@ $button-color: #444;
   $font-size-base: 12px !default;
   $line-height-base: 1.4 !default;
 
-  .create-task-list {
+  // Mobile Placeholders
+  %content-width {
     max-width: 100%;
     min-width: 100%;
+  }
+
+  .create-task-list {
+    @extend %content-width;
     .create-list-input {
       width: 74%;
     }
@@ -231,8 +253,7 @@ $button-color: #444;
   }
 
   .task-list {
-    min-width: 100%;
-    max-width: 100%;
+    @extend %content-width;
     margin: 5% auto;
     .add-task-container {
       .add-task-header {
@@ -276,10 +297,5 @@ $button-color: #444;
         }
       }
     }
-  }
-
-  .delete-container {
-    min-width: 100%;
-    max-width: 100%;
   }
 }

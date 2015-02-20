@@ -30,10 +30,13 @@
         <li ng-repeat="task in tasks | filter: task.searchFilter" ng-hide="taskHistory.getTaskStatus(task)" ng-swipe-right="taskHistory.completeTask(task)" class="task animate-swipe-rt">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
       </ul>
     </div>
+    <div class="delete-link-container">
+      <a class="delete-link" ng-click="deleteList()">&#10005 Delete this list</a>
+    </div>
   </div>
   
-  <div class="delete-container">
+  <!-- <div class="delete-container">
     <button class="delete-btn" ng-click="deleteList()">Delete List</button>
-  </div>
+  </div> -->
 
 </div>

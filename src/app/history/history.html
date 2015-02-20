@@ -3,11 +3,12 @@
   <div class="task-list">
     <div class="task-list-head">
       Task History
+      <input ng-model="task.searchFilter" type="text" class="search-input" placeholder="Search tasks...">
     </div>
 
     <div class="task-list-body">
       <ul class="tasks">
-        <li ng-repeat="task in tasks" ng-class="taskHistory.setTaskClass(task)" ng-show="taskHistory.getTaskStatus(task)" ng-swipe-left="taskHistory.reActivateTask(task)" class="task task-history animate-swipe-lt">{{ task.name }}<delete-task></delete-task></li>
+        <li ng-repeat="task in tasks | filter: task.searchFilter" ng-class="taskHistory.setTaskClass(task)" ng-show="taskHistory.getTaskStatus(task)" ng-swipe-left="taskHistory.reActivateTask(task)" class="task task-history animate-swipe-lt">{{ task.name }}<delete-task></delete-task></li>
       </ul>
     </div>
   </div>
