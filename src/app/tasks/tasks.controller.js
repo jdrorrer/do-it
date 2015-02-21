@@ -9,10 +9,8 @@ angular.module('doIt')
 
     $scope.taskHistory = TaskHistory;
     $scope.tasks = TaskHistory.active;
-    $scope.highTasks = TaskHistory.high;
-    $scope.mediumTasks = TaskHistory.medium;
-    $scope.lowTasks = TaskHistory.low;
     $scope.task = {};
+    
     $scope.currentDate = new Date().getTime(); 
     $scope.priorities = ['high', 'medium', 'low']; // Used to populate priority dropdown
 

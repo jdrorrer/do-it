@@ -6,7 +6,7 @@ var paths = gulp.paths;
 
 var $ = require('gulp-load-plugins')();
 
-gulp.task('styles', function () {
+gulp.task('styles', ['clean'], function () {
 
   var sassOptions = {
     style: 'expanded'
@@ -39,11 +39,11 @@ gulp.task('styles', function () {
     .pipe($.inject(injectFiles, injectOptions))
     .pipe(indexFilter.restore())
     .pipe($.sass(sassOptions))
-
   .pipe($.autoprefixer())
     .on('error', function handleError(err) {
       console.error(err.toString());
       this.emit('end');
     })
-    .pipe(gulp.dest(paths.tmp + '/serve/app/'));
+    .pipe(gulp.dest(paths.tmp + '/serve/app/')); 
+    
 });

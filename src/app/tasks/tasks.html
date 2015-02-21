@@ -31,21 +31,21 @@
         High
       </h4>
       <ul class="tasks">
-        <li ng-repeat="task in highTasks | filter: task.searchFilter" ng-hide="taskHistory.getTaskStatus(task)" ng-swipe-right="taskHistory.completeTask(task)" class="task animate-swipe-rt" editable-text="task.name" onaftersave="updateTask(task)">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
+        <li ng-repeat="task in tasks | filter: task.searchFilter | filter: {priority: 'high'}" ng-swipe-right="taskHistory.completeTask(task)" class="task animate-swipe-rt" editable-text="task.name" onaftersave="updateTask(task)">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
       </ul>
 
       <h4 class="priority-header">
         Medium
       </h4>
       <ul class="tasks">
-        <li ng-repeat="task in mediumTasks | filter: task.searchFilter" ng-hide="taskHistory.getTaskStatus(task)" ng-swipe-right="taskHistory.completeTask(task)" class="task animate-swipe-rt" editable-text="task.name" onaftersave="updateTask(task)">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
+        <li ng-repeat="task in tasks | filter: task.searchFilter | filter: {priority: 'medium'}" ng-swipe-right="taskHistory.completeTask(task)" class="task animate-swipe-rt" editable-text="task.name" onaftersave="updateTask(task)">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
       </ul>
 
       <h4 class="priority-header">
         Low
       </h4 >
       <ul class="tasks">
-        <li ng-repeat="task in lowTasks | filter: task.searchFilter" ng-hide="taskHistory.getTaskStatus(task)" ng-swipe-right="taskHistory.completeTask(task)" class="task animate-swipe-rt" editable-text="task.name" onaftersave="updateTask(task)">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
+        <li ng-repeat="task in tasks | filter: task.searchFilter | filter: {priority: 'low'}" ng-swipe-right="taskHistory.completeTask(task)" class="task animate-swipe-rt" editable-text="task.name" onaftersave="updateTask(task)">{{ task.name }}<complete-task></complete-task><delete-task></delete-task></li>
       </ul>
     </div>
   </div>

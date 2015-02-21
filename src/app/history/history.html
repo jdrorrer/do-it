@@ -11,21 +11,21 @@
         High
       </h4>
       <ul class="tasks">
-        <li ng-repeat="task in highTasks | filter: task.searchFilter" ng-class="taskHistory.setTaskClass(task)" ng-show="taskHistory.getTaskStatus(task)" ng-swipe-left="taskHistory.reActivateTask(task)" class="task task-history animate-swipe-lt">{{ task.name }}<delete-task></delete-task></li>
+        <li ng-repeat="task in tasks | filter: task.searchFilter | filter: {priority: 'high'}" ng-class="taskHistory.setTaskClass(task)" ng-swipe-left="taskHistory.reActivateTask(task)" class="task task-history animate-swipe-lt">{{ task.name }}<delete-task></delete-task></li>
       </ul>
 
       <h4 class="priority-header">
         Medium
       </h4>
       <ul class="tasks">
-        <li ng-repeat="task in mediumTasks | filter: task.searchFilter" ng-class="taskHistory.setTaskClass(task)" ng-show="taskHistory.getTaskStatus(task)" ng-swipe-left="taskHistory.reActivateTask(task)" class="task task-history animate-swipe-lt">{{ task.name }}<delete-task></delete-task></li>
+        <li ng-repeat="task in tasks | filter: task.searchFilter | filter: {priority: 'medium'}" ng-class="taskHistory.setTaskClass(task)" ng-swipe-left="taskHistory.reActivateTask(task)" class="task task-history animate-swipe-lt">{{ task.name }}<delete-task></delete-task></li>
       </ul>
 
       <h4 class="priority-header">
         Low
       </h4>
       <ul class="tasks">
-        <li ng-repeat="task in lowTasks | filter: task.searchFilter" ng-class="taskHistory.setTaskClass(task)" ng-show="taskHistory.getTaskStatus(task)" ng-swipe-left="taskHistory.reActivateTask(task)" class="task task-history animate-swipe-lt">{{ task.name }}<delete-task></delete-task></li>
+        <li ng-repeat="task in tasks | filter: task.searchFilter | filter: {priority: 'low'}" ng-class="taskHistory.setTaskClass(task)" ng-swipe-left="taskHistory.reActivateTask(task)" class="task task-history animate-swipe-lt">{{ task.name }}<delete-task></delete-task></li>
       </ul>
     </div>
   </div>

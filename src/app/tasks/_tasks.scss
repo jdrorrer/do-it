@@ -95,6 +95,9 @@ $button-color: #444;
       &:-ms-input-placeholder { /* Internet Explorer 10+ */
          color: rgba(255,255,255,0.8);
       }
+      &::placeholder {
+        color: rgba(255,255,255,0.8);
+      }
     }
   }
   .add-task-container {
@@ -144,7 +147,7 @@ $button-color: #444;
           width: 100%;
           box-shadow: none;
           background: transparent;
-          backgroun-image: none;
+          background-image: none;
           option[disabled] {
             display: none;
           }
