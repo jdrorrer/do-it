@@ -9,6 +9,7 @@ angular.module('doIt')
 
     $scope.taskHistory = TaskHistory;
     $scope.tasks = TaskHistory.active;
+    $scope.allTasks = TaskHistory.all;
     $scope.task = {};
     
     $scope.currentDate = new Date().getTime(); 
@@ -23,9 +24,9 @@ angular.module('doIt')
     };
 
     // Once firebase array of tasks is loaded
-    $scope.tasks.$loaded(function() {
+    $scope.allTasks.$loaded(function() {
       // Check each task to see if it should be expired
-      for (var i=0; i<$scope.tasks.length; i++) {
+      for(var i=0; i<$scope.tasks.length; i++) {
         $scope.taskHistory.setExpiredTask($scope.tasks[i], $scope.currentDate);
       }
     });
