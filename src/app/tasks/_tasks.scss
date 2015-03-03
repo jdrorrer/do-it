@@ -134,8 +134,6 @@ $button-color: #444;
         border-left: 1px solid $border-color;
         border-bottom: 1px solid $border-color;
         width: 40%;
-        padding: $font-size-base;
-        padding-bottom: $font-size-base - 1;
         overflow: hidden;
         select {
           border: none;
@@ -145,7 +143,11 @@ $button-color: #444;
           -moz-appearance: none;
           -webkit-appearance: none;
           appearance: none;  
+          text-indent: 0.01px;
+          text-overflow: '';
           width: 100%;
+          padding: $font-size-base;
+          padding-top: $font-size-base + 0.5; // firefox rounding issue
           box-shadow: none;
           background: transparent;
           background-image: none;
