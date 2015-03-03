@@ -12,7 +12,7 @@ angular.module('doIt')
       active: activeTasks,
 
       getTaskStatus: function(task) {
-        return task.status === 'active' ? false : true;
+        return task.status === 'active';
       },
       addTask: function(task) {
         var taskName = task.name;

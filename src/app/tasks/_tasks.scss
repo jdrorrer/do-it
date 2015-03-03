@@ -177,11 +177,9 @@ $button-color: #444;
   }
   [editable-text] {
     color: black; 
+    border-bottom: none;
   }
   .editable-wrap {
-    margin: $font-size-base 0;
-    margin-left: $font-size-base * 2;
-    display: block;
     input {
       padding: $font-size-base/2;
       border: 1px solid $border-color;
@@ -201,6 +199,8 @@ $button-color: #444;
     }
   }
 
+
+
   .tasks {
     padding-left: 0;
     clear: right;
@@ -210,23 +210,24 @@ $button-color: #444;
       border-bottom: 1px solid $border-color;
       position: relative;
 
-      /*  ng-hide Animation for swipe right touch gesture */
-      &.animate-swipe-rt.ng-hide-add, &.animate-swipe-rt.ng-hide-remove {
+      /*  Animation for swipe right touch gesture when task 'leaves' (ng-leave) */
+      &.animate-swipe-rt.ng-leave {
         -webkit-transition: all linear 1s;
         -moz-transition: all linear 1s;
         -o-transition: all linear 1s;
         transition: all linear 1s;
         display: block;
-      }
-
-      &.animate-swipe-rt.ng-hide-add.ng-hide-add-active {
-        opacity: 0;
-        text-decoration: line-through;
-      }
-
-      &.animate-swipe-rt.ng-hide-remove.ng-hide-remove-active {
         opacity: 1;
         text-decoration: none;
+      }
+
+      &.animate-swipe-rt.ng-leave.ng-leave-active {
+        text-decoration: line-through;
+        opacity: 0;
+      }
+
+      .hide-buttons {
+        display: none;
       }
       
       i {
@@ -327,9 +328,6 @@ $button-color: #444;
     }
     .priority-high-header {
       margin-top: $font-size-base * 7;
-    }
-    .editable-wrap {
-      margin-left: $font-size-base;
     }
     .tasks {
       margin-top: 0;

@@ -44,6 +44,14 @@ angular.module('doIt')
       }
     });
 
+    $scope.hideButtons = function() {
+      angular.element('.buttons').addClass('hide-buttons');
+    };
+
+    $scope.showButtons = function() {
+      angular.element('.buttons').removeClass('hide-buttons');
+    };
+
     $scope.addCurrentTask = function(task) {
       TaskHistory.addTask(task);
       $scope.task.name = null;

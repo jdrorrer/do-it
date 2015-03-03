@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('doIt')
-  .controller('TasksCtrl', function ($scope, $location, TaskList, TaskHistory) {
+  .controller('TasksCtrl', function ($scope, $location, $document, TaskList, TaskHistory) {
 
     $scope.taskList = TaskList;
     $scope.lists = TaskList.all;
@@ -30,6 +30,16 @@ angular.module('doIt')
         $scope.taskHistory.setExpiredTask($scope.tasks[i], $scope.currentDate);
       }
     });
+
+    var buttons;
+
+    $scope.hideButtons = function() {
+      angular.element('.buttons').addClass('hide-buttons');
+    };
+
+    $scope.showButtons = function() {
+      angular.element('.buttons').removeClass('hide-buttons');
+    };
 
     $scope.addCurrentTask = function(task) {
       TaskHistory.addTask(task);
