@@ -1,0 +1,42 @@
+/*******************************************************
+// Placeholders
+*******************************************************/
+
+
+// Button placeholder
+// ==================
+%button {
+  display: inline-block;
+  float: right;
+  width: 20%;
+  margin: 0;
+  padding: $font-size-base;
+
+  border: none;
+  border-bottom: 1px solid $button-color;
+
+  background-color: $button-color;
+
+  color: $background-color;
+  
+  transition: all .4s ease-in;
+  &:hover {
+    background-color: steelblue;
+    border-color: steelblue;
+  }
+}
+
+// Text input placeholder
+// ======================
+%text-input {
+  display: inline-block;
+  padding: $font-size-base;
+
+  border: 1px solid $border-color;
+
+  background-color: white;
+  
+  font-weight: 300;
+
+  outline: none;
+}

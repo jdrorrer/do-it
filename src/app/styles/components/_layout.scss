@@ -1,0 +1,96 @@
+/*  ========================================================================== */
+/*  @group Layout */
+/*  ========================================================================== */
+
+/*  ========================================================================== */
+/*  @group Layout Helpers */
+/*  ========================================================================== */
+
+    @mixin l-constrained() {
+
+        display: block;
+        width: 95%;
+        max-width: 720px;
+        margin: 0 auto;
+
+        @media only screen and (min-width: $breakpoint-narrow) {
+            width: 90%;
+        }
+
+    }
+
+    .l-constrained {
+        @include l-constrained();
+    }
+
+/*  ========================================================================== */
+/*  @group Header */
+/*  ========================================================================== */
+
+    [role="banner"] {
+        background-color: darken( $color-background, 10% );
+        border-bottom: 1px solid darken( $color-background, 15% );
+        padding: 1em 0 1em;
+        margin-bottom: 1.5em;
+    }
+        .branding {}
+        .branding-logo {
+            margin: 0;
+            @include font-size( 24 );
+        }
+
+
+/*  ========================================================================== */
+/*  @group Main */
+/*  ========================================================================== */
+
+    [role="main"] {
+
+    }
+
+    [role="complementary"] {
+
+    }
+
+/*  ========================================================================== */
+/*  Main content layout */
+/*  ========================================================================== */
+
+    %content-width {
+      max-width: 720px;
+      width: 60%;
+      margin: 2% auto;
+    }
+
+    @media only screen and (max-width: $bp-wide) {
+      %content-width {
+        width: 75%;
+      }
+    }
+
+    @media only screen and (max-width: $bp-mid) {
+      %content-width {
+        width: 85%;
+      }
+    }
+
+    @media only screen and (max-width: $bp-narrow) {
+      %content-width {
+        width: 100%;
+      }
+    }
+
+/*  ========================================================================== */
+/*  @group Footer */
+/*  ========================================================================== */
+
+    [role="contentinfo"] {
+
+      clear: both;
+      @include font-size( 13 );
+      margin-top: 1.5em;
+      margin-bottom: 1em;
+      padding-top: .5em;
+      border-top: 1px solid darken( $color-background, 15% );
+
+    }

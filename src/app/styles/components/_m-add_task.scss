@@ -1,0 +1,85 @@
+/*******************************************************
+// Add Task Module
+*******************************************************/
+
+.add-task-header {
+  background-color: $border-color;
+  div {
+    display: inline-block;
+    padding: $font-size-base/2 0;
+  }
+}
+.new-task-label {
+  margin-left: $font-size-base;
+}
+.priority-label {
+  margin-left: 25%;
+  @media only screen and (max-width: $bp-mid) {
+    margin-left: 22%;
+  }
+  @media only screen and (max-width: $bp-narrow) {
+    margin-left: 27%;
+  }
+  @media only screen and (max-width: $bp-xs) {
+    margin-left: 19%;
+  }
+}
+
+.add-task {
+  display: block;
+  position: relative;
+
+  input {
+    @extend %text-input;
+    width: 40%;
+    position: absolute;
+
+    border: none;
+    border-left: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+
+    @media only screen and (max-width: $bp-narrow) {
+      width: 50%;
+    }
+  }
+
+  button {
+    @extend %button;
+    position: relative;
+
+    @media only screen and (max-width: $bp-narrow) {
+      margin-top: $font-size-base*3;
+      position: relative;
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+.select-style {
+  position: absolute;
+  left: 40%;
+  display: inline-block;
+  width: 40%;
+  padding: $font-size-base;
+
+  border: none;
+  border-left: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+
+  background-color: white;
+  
+  overflow: hidden;
+
+  @media only screen and (max-width: $bp-narrow) {
+    width: 50%;
+    left: 50%;
+
+    clear: right;
+  }
+
+  select {
+    color: #AAA;
+    font-weight: 300;
+  }
+}

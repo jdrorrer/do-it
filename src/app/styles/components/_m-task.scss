@@ -1,0 +1,156 @@
+/*******************************************************
+// Task module
+*******************************************************/
+
+.tasks {
+  padding-left: 0;
+  clear: right;
+
+  @media only screen and (max-width: $bp-narrow) {
+    margin-top: 0;
+  }
+  .task {
+    position: relative;
+    padding: $font-size-base $font-size-base*2;
+
+    border-bottom: 1px solid $border-color;
+
+    list-style-type: none;
+    
+    @media only screen and (max-width: $bp-narrow) {
+      padding-left: $font-size-base;
+    }
+  }
+}
+
+// Title text for tasks grouped by priority
+.priority-header {
+  padding-left: $font-size-base;
+  margin-top: $font-size-base * 1.25;
+  padding-bottom: $font-size-base;
+
+  border-bottom: 1px dashed $border-color;
+
+  font-weight: 300;
+  font-size: 1.333em;
+}
+.priority-high-header {
+  margin-top: $font-size-base * 4;
+  padding-top: $font-size-base/2;
+
+  @media only screen and (max-width: $bp-narrow) {
+    margin-top: $font-size-base * 7;
+  }
+}
+
+// Overriding and adding to x-editable default styles
+[editable-text] {
+  border-bottom: none;
+  color: black;
+}
+.editable-wrap {
+  input {
+    padding: $font-size-base/2;
+    width: 75% !important; // override x-editable input width
+
+    border: 1px solid $border-color;
+    
+    outline: none;
+  }
+}
+.editable-buttons button {
+  padding: $font-size-base/2;
+
+  border: none;
+  border-radius: 4px;
+
+  background-color: $button-color;
+
+  color: $background-color;
+  
+  transition: all .4s ease-in;
+
+  &:hover {
+    border-color: steelblue;
+    background-color: steelblue;
+  }
+}
+
+// Overriding and adding to font-awesome default styles
+i {
+  position: absolute;
+  bottom: $font-size-base/3;
+
+  color: $header-color;
+
+  transition: color 0.4s ease-in;
+
+  @media only screen and (max-width: $bp-narrow) {
+    position: absolute;
+    bottom: $font-size-base/2.5;
+
+    font-size: $font-size-base*2.5;
+  }
+  &.fa-check-circle-o {
+    display: inline;
+    right: $font-size-base*3.75;
+    &:hover {
+      color: yellowgreen;
+      cursor: pointer; 
+    }
+    @media only screen and (max-width: $bp-narrow) {
+      right: $font-size-base*3;
+    }
+  }
+  &.fa-times-circle-o {
+    display: inline;
+    right: $font-size-base;
+    &:hover {
+      color: tomato;
+      cursor: pointer; 
+    }
+    @media only screen and (max-width: $bp-narrow) {
+      right: $font-size-base/2;
+    }
+  }
+}
+
+/*  Animation for swipe right touch gesture when task is completed */
+.animate-swipe-rt.ng-leave {
+  -webkit-transition: all linear 1s;
+  -moz-transition: all linear 1s;
+  -o-transition: all linear 1s;
+  transition: all linear 1s;
+  display: block;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.animate-swipe-rt.ng-leave.ng-leave-active {
+  text-decoration: line-through;
+  opacity: 0;
+}
+
+
+/* Task history styles
+====================== */
+.completed {
+  text-decoration: line-through;
+}
+
+/*  Animation for swipe left touch gesture when task is completed */
+.animate-swipe-lt.ng-leave {
+  -webkit-transition: all linear 1s;
+  -moz-transition: all linear 1s;
+  -o-transition: all linear 1s;
+  transition: all linear 1s;
+  display: block;
+  opacity: 1;
+  text-decoration: line-through;
+}
+
+.animate-swipe-lt.ng-leave.ng-leave-active {
+  text-decoration: none;
+  opacity: 0;
+}
+

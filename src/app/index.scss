@@ -1,19 +1,45 @@
-@import "tasks/tasks";
-@import "history/history";
+/*******************************************************
+// Sass Features
+*******************************************************/
+@import "styles/variables", "styles/functions", "styles/mixins", "styles/placeholders";
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
 
-.thumbnail {
-  height: 200px;
+/*******************************************************
+// The Styles
+*******************************************************/
+// Base styles
+@import "styles/common/base";
 
-  img.pull-right {
-    width: 50px;
-  }
-}
+
+/*******************************************************
+// Layout Elements
+*******************************************************/
+// - Layout = major components, e.g., header, footer etc.
+// - Module = minor components, e.g., navigation bar, callout, widgets etc.
+// - State  = a state is something that augments + overrides all other styles, e.g., success or error state
+@import "styles/components/layout"; 
+
+// Modules
+@import "styles/components/module";
+
+@import "styles/components/_m-list";
+@import "styles/components/_m-create_list";
+@import "styles/components/_m-task_header";
+@import "styles/components/_m-task_search";
+@import "styles/components/_m-add_task";
+@import "styles/components/_m-task";
+
+@import "styles/components/m-navbar";
+@import "styles/components/m-footer";
+
+// State
+@import "styles/components/state";
+
+
+/*******************************************************
+// Print Styles
+*******************************************************/
+@import "styles/print";
+
 // injector
 // endinjector

@@ -1,0 +1,24 @@
+/*******************************************************
+// Create task list module
+*******************************************************/
+
+.create-task-list{
+  @extend %content-width;
+}
+.create-list-input {
+  @extend %text-input;
+  width: 79%;
+}
+.create-list-button {
+  @extend %button;
+  border-top: 1px solid $button-color;
+}
+
+@media only screen and (max-width: $bp-narrow) {
+  .create-list-input {
+    width: 74%;
+  }
+  .create-list-button {
+    width: 25%;
+  }
+}

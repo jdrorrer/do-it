@@ -1,0 +1,41 @@
+/*******************************************************
+// Task search module
+*******************************************************/
+
+.search-input {
+  @extend %text-input;
+  width: 40%;
+  position: absolute;
+  right: $font-size-base / 2;
+  bottom: $font-size-base / 1.4;
+
+  border: none;
+  border-radius: 4px;
+  
+  font-size: 14px;
+  color: white;
+  
+  background-color: rgba(255,255,255,0.15);
+  
+  &::-webkit-input-placeholder { /* WebKit browsers */
+      color: rgba(255,255,255,0.8);
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+     color: white;
+     opacity: 0.8;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+     color: white;
+     opacity: 0.8;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+     color: rgba(255,255,255,0.8);
+  }
+  &::placeholder {
+    color: rgba(255,255,255,0.8);
+  }
+
+  @media only screen and (max-width: $bp-narrow) {
+    width: 30%;
+  }
+}

@@ -34,11 +34,11 @@ angular.module('doIt')
     var buttons;
 
     $scope.hideButtons = function() {
-      angular.element('.buttons').addClass('hide-buttons');
+      angular.element('.buttons').addClass('is-hidden');
     };
 
     $scope.showButtons = function() {
-      angular.element('.buttons').removeClass('hide-buttons');
+      angular.element('.buttons').removeClass('is-hidden');
     };
 
     $scope.addCurrentTask = function(task) {

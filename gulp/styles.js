@@ -35,9 +35,9 @@ gulp.task('styles', ['clean'], function () {
     paths.src + '/app/index.scss',
     paths.src + '/app/vendor.scss'
   ])
-    .pipe(indexFilter)
-    .pipe($.inject(injectFiles, injectOptions))
-    .pipe(indexFilter.restore())
+    // .pipe(indexFilter)
+    // .pipe($.inject(injectFiles, injectOptions))
+    // .pipe(indexFilter.restore())
     .pipe($.sass(sassOptions))
   .pipe($.autoprefixer())
     .on('error', function handleError(err) {
