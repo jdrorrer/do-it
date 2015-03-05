@@ -25,8 +25,23 @@ $fix-mqs: false !default;
     }
   }
   @else {
-    @media screen and (max-width: $width) {
-      @content;
+    @if $width == huge {
+      @media screen and (max-width: $bp-huge) { @content; }
+    }
+    @else if $width == wide {
+      @media screen and (max-width: $bp-wide) { @content; }
+    }
+    @else if $width == mid {
+      @media screen and (max-width: $bp-mid) { @content; }
+    }
+    @else if $width == narrow {
+      @media screen and (max-width: $bp-narrow) { @content; }
+    }
+    @else if $width == xs {
+      @media screen and (max-width: $bp-xs) { @content; }
+    }
+    @else {
+      @media screen and (max-width: $width) { @content; }
     }
   }
 }

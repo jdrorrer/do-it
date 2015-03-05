@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('doIt')
-  .service('TaskHistory', function ($firebase, FIREBASE_URI, $filter, $stateParams) {
+  .service('TaskHistory', function ($firebase, FIREBASE_URI, $filter, $stateParams, $timeout) {
     var ref = new Firebase(FIREBASE_URI);
     var sync = $firebase(ref.child('tasks'));
     var tasks = sync.$asArray();
@@ -51,16 +51,20 @@ angular.module('doIt')
       completeTask: function(task) {
         var i = tasks.$indexFor(task.$id);
 
-        tasks[i].status = 'completed';
-        tasks.$save(i);
-          
+        $timeout(function() { // allow time for swipe right animation to complete
+          tasks[i].status = 'completed';
+          tasks.$save(i);
+        }, 900);
+        
         console.log("Moved completed task to history: " + task.name);  
       },
       reActivateTask: function(task) {
         var i = tasks.$indexFor(task.$id);
 
-        tasks[i].status = 'active';
-        tasks.$save(i);
+        $timeout(function() { // allow time for swipe right animation to complete
+          tasks[i].status = 'active';
+          tasks.$save(i);
+        }, 900);
 
         console.log("Changed task status to active: " + task.name);
       },
@@ -86,7 +90,7 @@ angular.module('doIt')
         } 
       },
       setTaskClass: function(task) {
-        return task.status === 'completed' ? 'completed' : 'expired';
+        return task.status === 'completed' ? true : false;
       }
     };
   });

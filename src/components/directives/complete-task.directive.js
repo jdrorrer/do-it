@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('doIt')
-  .directive('completeTask', function ($firebase, FIREBASE_URI) {
+  .directive('completeTask', function ($firebase, FIREBASE_URI, $timeout) {
     return {
-      template: '<i ng-click="onClick($parent.task)" class="fa fa-check-circle-o fa-3x" tooltip="Complete Task" tooltip-placement="left"></i>',
+      template: '<i ng-click="onClick($parent.task);" class="fa fa-check-circle-o fa-3x" tooltip="Complete Task" tooltip-placement="left"></i>',
       restrict: 'E',
       replace: true,
       scope: {}, 
@@ -15,9 +15,11 @@ angular.module('doIt')
         scope.onClick = function(task) {
           var i = tasks.$indexFor(task.$id);
 
-          tasks[i].status = 'completed';
-          tasks.$save(i);
-          
+          $timeout(function() { // allow time for swipe right animation to complete
+            tasks[i].status = 'completed';
+            tasks.$save(i);
+          }, 900);
+                
           console.log("Moved completed task to history: " + task.name); 
         };
       }

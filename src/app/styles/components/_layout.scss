@@ -62,19 +62,19 @@
       margin: 2% auto;
     }
 
-    @media only screen and (max-width: $bp-wide) {
+    @include respond-max(wide) {
       %content-width {
         width: 75%;
       }
     }
 
-    @media only screen and (max-width: $bp-mid) {
+    @include respond-max(mid) {
       %content-width {
         width: 85%;
       }
     }
 
-    @media only screen and (max-width: $bp-narrow) {
+    @include respond-max(narrow) {
       %content-width {
         width: 100%;
       }

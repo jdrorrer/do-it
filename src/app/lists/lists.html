@@ -30,30 +30,26 @@
         High
       </h4>
       <ul class="tasks">
-        <li ng-repeat="task in tasks | filter: task.searchFilter | filter: {priority: 'high'}" ng-if="taskHistory.getTaskStatus(task)" ng-swipe-right="taskHistory.completeTask(task)" class="task animate-swipe-rt"><span editable-text="task.name" onaftersave="updateTask(task)" onshow="hideButtons()" onhide="showButtons()">{{ task.name }}</span><span class="buttons"><complete-task></complete-task><delete-task></delete-task></span></li>
+        <li ng-repeat="task in tasks | filter: task.searchFilter | filter: {priority: 'high'} | filter: {status: 'active'}" ng-init="swipe = false;" ng-swipe-right="swipe = !swipe; taskHistory.completeTask(task)" ng-class="{'animate-swipe-rt': swipe}" class="task"><span editable-text="task.name" onaftersave="updateTask(task)" onshow="hideButtons()" onhide="showButtons()">{{ task.name }}</span><span class="buttons"><complete-task ng-click="swipe = !swipe;"></complete-task><delete-task ng-click="swipe = !swipe;"></delete-task></span></li>
       </ul>
 
       <h4 class="priority-header">
         Medium
       </h4>
       <ul class="tasks">
-        <li ng-repeat="task in tasks | filter: task.searchFilter | filter: {priority: 'medium'}" ng-if="taskHistory.getTaskStatus(task)" ng-swipe-right="taskHistory.completeTask(task)" class="task animate-swipe-rt"><span editable-text="task.name" onaftersave="updateTask(task)" onshow="hideButtons()" onhide="showButtons()">{{ task.name }}</span><span class="buttons"><complete-task></complete-task><delete-task></delete-task></span></li>
+        <li ng-repeat="task in tasks | filter: task.searchFilter | filter: {priority: 'medium'} | filter: {status: 'active'}" ng-init="swipe = false;" ng-swipe-right="swipe = !swipe; taskHistory.completeTask(task)" ng-class="{'animate-swipe-rt': swipe}" class="task"><span editable-text="task.name" onaftersave="updateTask(task)" onshow="hideButtons()" onhide="showButtons()">{{ task.name }}</span><span class="buttons"><complete-task ng-click="swipe = !swipe;"></complete-task><delete-task ng-click="swipe = !swipe;"></delete-task></span></li>
       </ul>
 
       <h4 class="priority-header">
         Low
       </h4>
       <ul class="tasks">
-        <li ng-repeat="task in tasks | filter: task.searchFilter | filter: {priority: 'low'}" ng-if="taskHistory.getTaskStatus(task)" ng-swipe-right="taskHistory.completeTask(task)" class="task animate-swipe-rt"><span editable-text="task.name" onaftersave="updateTask(task)" onshow="hideButtons()" onhide="showButtons()">{{ task.name }}</span><span class="buttons"><complete-task></complete-task><delete-task></delete-task></span></li>
+        <li ng-repeat="task in tasks | filter: task.searchFilter | filter: {priority: 'low'} | filter: {status: 'active'}" ng-init="swipe = false;" ng-swipe-right="swipe = !swipe; taskHistory.completeTask(task)" ng-class="{'animate-swipe-rt': swipe}" class="task"><span editable-text="task.name" onaftersave="updateTask(task)" onshow="hideButtons()" onhide="showButtons()">{{ task.name }}</span><span class="buttons"><complete-task ng-click="swipe = !swipe;"></complete-task><delete-task ng-click="swipe = !swipe;"></delete-task></span></li>
       </ul>
     </div>
     <div class="delete-link-container">
       <a class="delete-link" ng-click="deleteList()">&#10005 Delete this list</a>
     </div>
   </div>
-  
-  <!-- <div class="delete-container">
-    <button class="delete-btn" ng-click="deleteList()">Delete List</button>
-  </div> -->
 
 </div>

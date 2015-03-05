@@ -14,13 +14,13 @@
 }
 .priority-label {
   margin-left: 25%;
-  @media only screen and (max-width: $bp-mid) {
+  @include respond-max(mid) {
     margin-left: 22%;
   }
-  @media only screen and (max-width: $bp-narrow) {
+  @include respond-max(narrow) {
     margin-left: 27%;
   }
-  @media only screen and (max-width: $bp-xs) {
+  @include respond-max(xs) {
     margin-left: 19%;
   }
 }
@@ -38,7 +38,7 @@
     border-left: 1px solid $border-color;
     border-bottom: 1px solid $border-color;
 
-    @media only screen and (max-width: $bp-narrow) {
+    @include respond-max(narrow) {
       width: 50%;
     }
   }
@@ -47,7 +47,7 @@
     @extend %button;
     position: relative;
 
-    @media only screen and (max-width: $bp-narrow) {
+    @include respond-max(narrow) {
       margin-top: $font-size-base*3;
       position: relative;
       width: 100%;
@@ -71,7 +71,7 @@
   
   overflow: hidden;
 
-  @media only screen and (max-width: $bp-narrow) {
+  @include respond-max(narrow) {
     width: 50%;
     left: 50%;
 

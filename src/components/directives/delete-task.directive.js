@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('doIt')
-  .directive('deleteTask', function ($firebase, FIREBASE_URI) {
+  .directive('deleteTask', function ($firebase, FIREBASE_URI, $timeout) {
     return {
       template: '<i ng-click="onClick($parent.task)" class="fa fa-times-circle-o fa-3x" tooltip="Delete Task" tooltip-placement="right" ng-click="taskHistory.removeTask(task)"></i>',
       restrict: 'E',
@@ -15,7 +15,10 @@ angular.module('doIt')
         scope.onClick = function(task) {
           var i = tasks.$indexFor(task.$id);
 
-          tasks.$remove(i);
+          $timeout(function() { // allow time for swipe right animation to complete
+            tasks.$remove(i);
+          }, 900);
+         
           console.log("Permanently deleted task from history: " + task.name);      
         };
       }

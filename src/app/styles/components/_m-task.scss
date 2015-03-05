@@ -6,7 +6,7 @@
   padding-left: 0;
   clear: right;
 
-  @media only screen and (max-width: $bp-narrow) {
+  @include respond-max(narrow) {
     margin-top: 0;
   }
   .task {
@@ -17,7 +17,7 @@
 
     list-style-type: none;
     
-    @media only screen and (max-width: $bp-narrow) {
+    @include respond-max(narrow) {
       padding-left: $font-size-base;
     }
   }
@@ -38,7 +38,7 @@
   margin-top: $font-size-base * 4;
   padding-top: $font-size-base/2;
 
-  @media only screen and (max-width: $bp-narrow) {
+  @include respond-max(narrow) {
     margin-top: $font-size-base * 7;
   }
 }
@@ -85,7 +85,7 @@ i {
 
   transition: color 0.4s ease-in;
 
-  @media only screen and (max-width: $bp-narrow) {
+  @include respond-max(narrow) {
     position: absolute;
     bottom: $font-size-base/2.5;
 
@@ -98,7 +98,7 @@ i {
       color: yellowgreen;
       cursor: pointer; 
     }
-    @media only screen and (max-width: $bp-narrow) {
+    @include respond-max(narrow) {
       right: $font-size-base*3;
     }
   }
@@ -109,14 +109,14 @@ i {
       color: tomato;
       cursor: pointer; 
     }
-    @media only screen and (max-width: $bp-narrow) {
+    @include respond-max(narrow) {
       right: $font-size-base/2;
     }
   }
 }
 
 /*  Animation for swipe right touch gesture when task is completed */
-.animate-swipe-rt.ng-leave {
+.animate-swipe-rt-add {
   -webkit-transition: all linear 1s;
   -moz-transition: all linear 1s;
   -o-transition: all linear 1s;
@@ -126,7 +126,7 @@ i {
   text-decoration: none;
 }
 
-.animate-swipe-rt.ng-leave.ng-leave-active {
+.animate-swipe-rt-add.animate-swipe-rt-add-active {
   text-decoration: line-through;
   opacity: 0;
 }
@@ -139,7 +139,7 @@ i {
 }
 
 /*  Animation for swipe left touch gesture when task is completed */
-.animate-swipe-lt.ng-leave {
+.animate-swipe-lt-add {
   -webkit-transition: all linear 1s;
   -moz-transition: all linear 1s;
   -o-transition: all linear 1s;
@@ -149,7 +149,7 @@ i {
   text-decoration: line-through;
 }
 
-.animate-swipe-lt.ng-leave.ng-leave-active {
+.animate-swipe-lt-add.animate-swipe-lt-add-active {
   text-decoration: none;
   opacity: 0;
 }
