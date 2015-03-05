@@ -25,7 +25,7 @@ angular.module('doIt')
     // Delete list modal configuration
     $scope.open = function(size) {
       var modalInstance = $modal.open({
-        templateUrl: '../../components/modals/delete-list-modal.html',
+        templateUrl: 'app/lists/delete-list-modal.html',
         controller: 'DeleteListCtrl',
         size: size,
         backdrop: true,
