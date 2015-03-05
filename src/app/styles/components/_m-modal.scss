@@ -1,0 +1,22 @@
+/*******************************************************
+// Modal module
+// Overriding UI Bootstrap's default modal styles
+*******************************************************/
+
+.modal-title {
+  font-weight: $font-weight-light;
+}
+
+.modal-footer .btn {
+  @extend %button;
+  border-radius: 0px;
+  width: 110px;
+}
+
+.modal-footer .btn-danger {
+  position: absolute;
+  right: $font-size-base * 8.5;
+
+  border-color: tomato;
+  background-color: tomato;
+}

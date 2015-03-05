@@ -23,14 +23,6 @@ angular.module('doIt')
       });
     };
 
-    // Once firebase array of tasks is loaded
-    $scope.allTasks.$loaded(function() {
-      // Check each task to see if it should be expired
-      for(var i=0; i<$scope.tasks.length; i++) {
-        $scope.taskHistory.setExpiredTask($scope.tasks[i], $scope.currentDate);
-      }
-    });
-
     var buttons;
 
     $scope.hideButtons = function() {

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('doIt')
-  .controller('ListsCtrl', function ($scope, $stateParams, $location, TaskList, TaskHistory) {
+  .controller('ListsCtrl', function ($scope, $stateParams, $location, TaskList, TaskHistory, $modal) {
 
     $scope.taskList = TaskList;
     $scope.lists = TaskList.all;
@@ -22,6 +22,25 @@ angular.module('doIt')
       });
     };
 
+    // Delete list modal configuration
+    $scope.open = function(size) {
+      var modalInstance = $modal.open({
+        templateUrl: '../../components/modals/delete-list-modal.html',
+        controller: 'DeleteListCtrl',
+        size: size,
+        backdrop: true,
+        resolve: {
+          list: function () {
+            return $scope.list;
+          }
+        }
+      });
+
+      modalInstance.result.then(function () {
+        $scope.deleteList();
+      });
+    };
+
     $scope.deleteList = function() {
       var i = $scope.lists.$indexFor($scope.list.$id);
 
@@ -35,14 +54,6 @@ angular.module('doIt')
         $location.path('/');
       });
     };
-
-    // Once firebase array of tasks is loaded
-    $scope.tasks.$loaded(function() {
-      // Check each task to see if it should be expired
-      for (var i=0; i<$scope.tasks.length; i++) {
-        $scope.taskHistory.setExpiredTask($scope.tasks[i], i, $scope.currentDate);
-      }
-    });
 
     $scope.hideButtons = function() {
       angular.element('.buttons').addClass('is-hidden');

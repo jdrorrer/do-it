@@ -7,6 +7,33 @@ angular.module('doIt')
     var tasks = sync.$asArray();
     var activeTasks = $firebase(ref.child('tasks').orderByChild('status').equalTo('active')).$asArray();
 
+    var setExpiredTask = function(task, currentDate) {
+      var oneDayInMilliseconds = 86400000; // equivalent of one day in milliseconds
+      var dateTimeDiff = currentDate - task.date;
+      var daysPassed = Math.floor(dateTimeDiff / oneDayInMilliseconds);
+
+      var i = tasks.$indexFor(task.$id);
+
+      // console.log(task.$id, daysPassed, dateTimeDiff, tasks[i]);
+
+      if (daysPassed >= 7 && tasks[i].status === 'active') {
+        tasks[i].status = 'expired';
+        tasks.$save(i);
+
+        console.log ("'" + task.name + "' is older than 7 days. Changed status to 'expired' and moved to task history.");
+      } 
+    };
+
+    var currentDate = new Date().getTime();
+
+    // Once firebase array of tasks is loaded
+    tasks.$loaded(function() {
+      // Check each task to see if it should be expired
+      for(var i=0; i<tasks.length; i++) {
+        setExpiredTask(tasks[i], currentDate);
+      }
+    });
+
     return {
       all: tasks,
       active: activeTasks,
@@ -72,22 +99,6 @@ angular.module('doIt')
         var i = tasks.$indexFor(task.$id);
 
         tasks.$remove(i);
-      },
-      setExpiredTask: function(task, currentDate) {
-        var oneDayInMilliseconds = 86400000;
-        var dateTimeDiff = currentDate - task.date;
-        var daysPassed = Math.floor(dateTimeDiff / oneDayInMilliseconds);
-
-        var i = tasks.$indexFor(task.$id);
-
-        // console.log(task.$id, daysPassed, dateTimeDiff, tasks[i]);
-
-        if (daysPassed >= 7 && tasks[i].status === 'active') {
-          tasks[i].status = 'expired';
-          tasks.$save(i);
-
-          console.log ("'" + task.name + "' is older than 7 days. Changed status to 'expired' and moved to task history.");
-        } 
       },
       setTaskClass: function(task) {
         return task.status === 'completed' ? true : false;
