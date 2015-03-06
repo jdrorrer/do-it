@@ -47,7 +47,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
-    .pipe($.replace('../bootstrap-sass-official/assets/fonts/bootstrap', 'fonts'))
+    .pipe($.replace('../bootstrap-sass-official/vendor/assets/fonts/bootstrap', 'fonts'))
 
     // .pipe($.uncss({
     //   html: [paths.src + '/app/index.html', paths.src + '/app/history/history.html', paths.src + '/app/lists/lists.html', paths.src + '/app/tasks/tasks.html', paths.src + '/components/footer/footer.html', paths.src + '/components/navbar/navbar.html'],
@@ -106,7 +106,7 @@ gulp.task('images', ['clean'], function () {
 
 gulp.task('fonts', ['clean'], function () {
   return gulp.src($.mainBowerFiles())
-    .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
+    .pipe($.filter('**/*.{eot,svg,ttf,woff, woff2}'))
     .pipe($.flatten())
     .pipe(gulp.dest(paths.dist + '/fonts/'));
 });
